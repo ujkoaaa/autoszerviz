@@ -1,0 +1,14 @@
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\obj\Debug\autoszerviz.csprojAssemblyReference.cache
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\obj\Debug\autoszerviz.Properties.Resources.resources
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\obj\Debug\autoszerviz.csproj.GenerateResource.cache
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\bin\Debug\autoszerviz.exe.config
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\bin\Debug\autoszerviz.exe
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\bin\Debug\autoszerviz.pdb
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\obj\Debug\autoszerviz.Form1.resources
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\obj\Debug\autoszerviz.csproj.CoreCompileInputs.cache
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\obj\Debug\autoszerviz.csproj.CopyComplete
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\obj\Debug\autoszerviz.exe
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\obj\Debug\autoszerviz.pdb
+C:\Users\rooti\OneDrive\Suli\Git\autoszerviz\autoszerviz\autoszerviz\obj\Debug\autoszerviz.BelepettForm.resources
