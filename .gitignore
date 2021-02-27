@@ -1,0 +1,5 @@
+# Fájlok és könyvtárak amiket nem szeretnénk feltölteni
+
+.vs/
+[Bb]in/
+[Oo]bj/
