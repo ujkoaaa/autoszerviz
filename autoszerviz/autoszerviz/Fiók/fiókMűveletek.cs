@@ -62,5 +62,17 @@ namespace autoszerviz.Fiók
             string json = JsonConvert.SerializeObject(lista);
             System.IO.File.WriteAllText("../../../adatok.json", json);
         }
+
+        public List<Felhasználó> összesSzerelő()
+        {
+            List<Felhasználó> felhasználók = new List<Felhasználó>();
+            using (StreamReader r = new StreamReader("../../../adatok.json"))
+            {
+                string json = r.ReadToEnd();
+                felhasználók = JsonConvert.DeserializeObject<List<Felhasználó>>(json);
+            }
+
+            return felhasználók.Where(f => f.szerelő).ToList();
+        }
     }
 }

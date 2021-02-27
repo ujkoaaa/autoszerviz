@@ -10,7 +10,19 @@ namespace autoszerviz.Fiók
     {
         public string név;
         public string jelszó;
+
+        public bool szerelő;
         
-        public Felhasználó(string név_, string jelszó_) { név = név_; jelszó = jelszó_; }
+        public Felhasználó(string név, string jelszó, bool szerelő = false)
+        {
+            this.név = név;
+            this.jelszó = jelszó;
+            this.szerelő = szerelő;
+        }
+
+        public override string ToString()
+        {
+            return név;
+        }
     }
 }

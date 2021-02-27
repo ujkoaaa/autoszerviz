@@ -1,1 +1,1 @@
-[{"név":"asd","jelszó":"asd"},{"név":"asd1","jelszó":"asd2"}]
+[{"név":"asd","jelszó":"asd","szerelő":false},{"név":"asd1","jelszó":"asd2","szerelő":false},{"név":"szerelő","jelszó":"","szerelő":true},{"név":"Pista","jelszó":"istvan","szerelő":true}]
