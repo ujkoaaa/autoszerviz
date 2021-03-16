@@ -49,6 +49,7 @@
             this.jelszóText.Name = "jelszóText";
             this.jelszóText.Size = new System.Drawing.Size(100, 20);
             this.jelszóText.TabIndex = 1;
+            this.jelszóText.UseSystemPasswordChar = true;
             // 
             // label1
             // 
