@@ -11,6 +11,8 @@ namespace autoszerviz.Fiók
 {
     public class fiókMűveletek
     {
+        private const string AdatokFile = "../../../adatok.json";
+
         public fiókMűveletek() { }
         public void regisztrál(string név, string jelszó)
         {
@@ -26,7 +28,7 @@ namespace autoszerviz.Fiók
         public bool létezőFiók(string név, string jelszó,bool reg)
         {
             List<Felhasználó> felhasználók = new List<Felhasználó>();
-            using (StreamReader r = new StreamReader("../../../adatok.json"))
+            using (StreamReader r = new StreamReader(AdatokFile))
             {
                 string json = r.ReadToEnd();
                 felhasználók = JsonConvert.DeserializeObject<List<Felhasználó>>(json);
@@ -60,13 +62,13 @@ namespace autoszerviz.Fiók
             }
             lista.Add(new Felhasználó(név, jelszó));
             string json = JsonConvert.SerializeObject(lista);
-            System.IO.File.WriteAllText("../../../adatok.json", json);
+            System.IO.File.WriteAllText(AdatokFile, json);
         }
 
         public List<Felhasználó> összesSzerelő()
         {
             List<Felhasználó> felhasználók = new List<Felhasználó>();
-            using (StreamReader r = new StreamReader("../../../adatok.json"))
+            using (StreamReader r = new StreamReader(AdatokFile))
             {
                 string json = r.ReadToEnd();
                 felhasználók = JsonConvert.DeserializeObject<List<Felhasználó>>(json);

@@ -15,9 +15,13 @@ namespace autoszerviz
 {
     public partial class BelepettForm : Form
     {
+        private IdopontMuveletek idopontMuveletek;
+
         public BelepettForm()
         {
             InitializeComponent();
+
+            idopontMuveletek = new IdopontMuveletek();
             label1.Text = "Üdv "+Form1.név;
 
             foreach (var szerelő in new fiókMűveletek().összesSzerelő())
@@ -47,6 +51,7 @@ namespace autoszerviz
 
         public string időpontSegéd(string kliens, Button gomb)
         {
+            gomb.Enabled = false;
             if (kliens == Form1.név)
             {
                 gomb.BackColor = Color.Orange;
@@ -92,40 +97,51 @@ namespace autoszerviz
         }
         private void napFrissítés(DateTime nap, Felhasználó szerelő)
         {
-            var időpontLista = new List<Button>();
-            időpontLista.Add(button1);
-            időpontLista.Add(button2);
-            időpontLista.Add(button3);
-            időpontLista.Add(button4);
-            időpontLista.Add(button5);
-            időpontLista.Add(button6);
-            időpontLista.Add(button7);
-            időpontLista.Add(button8);
-            foreach (var it in időpontLista)
+            var idopontLista = new List<Button>();
+            idopontLista.Add(button1);
+            idopontLista.Add(button2);
+            idopontLista.Add(button3);
+            idopontLista.Add(button4);
+            idopontLista.Add(button5);
+            idopontLista.Add(button6);
+            idopontLista.Add(button7);
+            idopontLista.Add(button8);
+            foreach (var it in idopontLista)
             {
-                it.BackColor = Color.Green;
-                it.Text = "Szabad";
+                if (nap.Date < DateTime.Now.Date || (nap.Date == DateTime.Now.Date && idopontLista.IndexOf(it) + 8 < DateTime.Now.Hour))
+                {
+                    it.BackColor = Color.Gray;
+                    it.Text = "Elmúlt";
+                    it.Enabled = false;
+                }
+                else
+                {
+                    it.BackColor = Color.Green;
+                    it.Text = "Szabad";
+                }
             }
 
-            List<Időpont> időpontok = new List<Időpont>();
-            using (StreamReader r = new StreamReader("../../../időpontok.json"))
+            foreach (Időpont f in idopontMuveletek.GetSzerelo(szerelő.név))
             {
-                string json = r.ReadToEnd();
-                időpontok = JsonConvert.DeserializeObject<List<Időpont>>(json);
-            }
-            if (időpontok != null)
-            {
-                foreach (Időpont f in időpontok)
+                if (f.idő.Date == nap.Date)
                 {
-                    if (f.szerelőnév == szerelő.név && f.idő.Date == nap.Date)
-                    {
-                        időpontListázás(f.ügyfél, f.idő.Hour.ToString());
-                    }
-                    else
-                    {
-                        időpontok.Remove(f);
-                    }
+                    időpontListázás(f.ügyfél, f.idő.Hour.ToString());
                 }
+            }
+        }
+
+        private void timebutton_Click(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                var szerelo = szerelőVálasztó.SelectedItem as Felhasználó;
+                var kliens = Form1.név;
+                var idopont = napVálasztó.SelectionStart.AddHours(int.Parse((string)button.Tag));
+                idopontMuveletek.AddIdopont(new Időpont(szerelo.név, kliens, idopont));
+
+                idopontMuveletek.Mentes();
+                napFrissítés(napVálasztó.SelectionStart, szerelőVálasztó.SelectedItem as Felhasználó);
             }
         }
     }

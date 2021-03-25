@@ -93,8 +93,10 @@ namespace autoszerviz
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 34);
             this.button1.TabIndex = 5;
+            this.button1.Tag = "9";
             this.button1.Text = "N/A";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.timebutton_Click);
             // 
             // label2
             // 
@@ -112,8 +114,10 @@ namespace autoszerviz
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(181, 34);
             this.button2.TabIndex = 7;
+            this.button2.Tag = "10";
             this.button2.Text = "N/A";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.timebutton_Click);
             // 
             // label3
             // 
@@ -131,8 +135,10 @@ namespace autoszerviz
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(181, 34);
             this.button3.TabIndex = 10;
+            this.button3.Tag = "11";
             this.button3.Text = "N/A";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.timebutton_Click);
             // 
             // label4
             // 
@@ -150,8 +156,10 @@ namespace autoszerviz
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(181, 34);
             this.button4.TabIndex = 12;
+            this.button4.Tag = "12";
             this.button4.Text = "N/A";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.timebutton_Click);
             // 
             // label5
             // 
@@ -169,8 +177,10 @@ namespace autoszerviz
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(181, 34);
             this.button5.TabIndex = 14;
+            this.button5.Tag = "13";
             this.button5.Text = "N/A";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.timebutton_Click);
             // 
             // label6
             // 
@@ -188,8 +198,10 @@ namespace autoszerviz
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(181, 34);
             this.button6.TabIndex = 16;
+            this.button6.Tag = "14";
             this.button6.Text = "N/A";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.timebutton_Click);
             // 
             // label7
             // 
@@ -207,8 +219,10 @@ namespace autoszerviz
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(181, 34);
             this.button7.TabIndex = 18;
+            this.button7.Tag = "15";
             this.button7.Text = "N/A";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.timebutton_Click);
             // 
             // label8
             // 
@@ -226,8 +240,10 @@ namespace autoszerviz
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(181, 34);
             this.button8.TabIndex = 20;
+            this.button8.Tag = "16";
             this.button8.Text = "N/A";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.timebutton_Click);
             // 
             // label9
             // 

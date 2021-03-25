@@ -56,6 +56,7 @@
       <DependentUpon>BelepettForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Fiók\Felhasználó.cs" />
+    <Compile Include="Fiók\IdopontMuveletek.cs" />
     <Compile Include="Fiók\fiókMűveletek.cs" />
     <Compile Include="Fiók\Időpont.cs" />
     <Compile Include="Form1.cs">
