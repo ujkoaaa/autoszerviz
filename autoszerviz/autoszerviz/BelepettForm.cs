@@ -30,7 +30,8 @@ namespace autoszerviz
             }
             if (szerelőVálasztó.Items.Count > 0)
             {
-                napFrissítés(DateTime.Now, szerelőVálasztó.Items[0] as Felhasználó);
+                szerelőVálasztó.SetSelected(0, true);
+                napFrissítés();
             }
         }
 
@@ -41,12 +42,12 @@ namespace autoszerviz
 
         private void napVálasztó_DateChanged(object sender, DateRangeEventArgs e)
         {
-            napFrissítés(napVálasztó.SelectionStart, szerelőVálasztó.SelectedItem as Felhasználó);
+            napFrissítés();
         }
 
         private void szerelőVálasztó_SelectedIndexChanged(object sender, EventArgs e)
         {
-            napFrissítés(napVálasztó.SelectionStart, szerelőVálasztó.SelectedItem as Felhasználó);
+            napFrissítés();
         }
 
         public string időpontSegéd(string kliens, Button gomb)
@@ -95,8 +96,11 @@ namespace autoszerviz
                 button8.Text = időpontSegéd(kliens, button8);
             }
         }
-        private void napFrissítés(DateTime nap, Felhasználó szerelő)
+        private void napFrissítés()
         {
+            var nap = napVálasztó.SelectionStart;
+            var szerelő = szerelőVálasztó.SelectedItem as Felhasználó;
+
             var idopontLista = new List<Button>();
             idopontLista.Add(button1);
             idopontLista.Add(button2);
@@ -118,6 +122,7 @@ namespace autoszerviz
                 {
                     it.BackColor = Color.Green;
                     it.Text = "Szabad";
+                    it.Enabled = true;
                 }
             }
 
@@ -135,13 +140,28 @@ namespace autoszerviz
             var button = sender as Button;
             if (button != null)
             {
-                var szerelo = szerelőVálasztó.SelectedItem as Felhasználó;
-                var kliens = Form1.név;
-                var idopont = napVálasztó.SelectionStart.AddHours(int.Parse((string)button.Tag));
-                idopontMuveletek.AddIdopont(new Időpont(szerelo.név, kliens, idopont));
+                var rendeles = new RendeloForm();
+                var result = rendeles.ShowDialog();
 
-                idopontMuveletek.Mentes();
-                napFrissítés(napVálasztó.SelectionStart, szerelőVálasztó.SelectedItem as Felhasználó);
+                if (result == DialogResult.OK)
+                {
+                    var (muvelet, megjegyzes) = ((string, string))rendeles.Tag;
+                    var szerelo = szerelőVálasztó.SelectedItem as Felhasználó;
+                    var kliens = Form1.név;
+                    var idopont = napVálasztó.SelectionStart.AddHours(int.Parse((string)button.Tag));
+                    var foglalas = new Időpont
+                    {
+                        szerelőnév = szerelo.név,
+                        ügyfél = kliens,
+                        idő = idopont,
+                        muvelet = muvelet,
+                        megjegyzes = megjegyzes
+                    };
+                    idopontMuveletek.AddIdopont(foglalas);
+
+                    idopontMuveletek.Mentes();
+                }
+                napFrissítés();
             }
         }
     }

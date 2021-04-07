@@ -67,6 +67,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RendeloForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RendeloForm.Designer.cs">
+      <DependentUpon>RendeloForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BelepettForm.resx">
       <DependentUpon>BelepettForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +88,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RendeloForm.resx">
+      <DependentUpon>RendeloForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

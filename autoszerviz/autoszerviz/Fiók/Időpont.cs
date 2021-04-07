@@ -11,11 +11,8 @@ namespace autoszerviz.Fiók
         public string szerelőnév;
         public string ügyfél;
         public DateTime idő;
-        public Időpont(string szerelő, string kliens, DateTime dátum)
-        {
-            szerelőnév = szerelő;
-            ügyfél = kliens;
-            idő = dátum;
-        }
+
+        public string muvelet;
+        public string megjegyzes;
     }
 }
