@@ -12,6 +12,17 @@ namespace autoszerviz
 {
     public partial class RendeloForm : Form
     {
+        public string Tipus 
+        {
+            get { return comboBox1.SelectedItem.ToString(); }
+            set { comboBox1.SelectedItem = comboBox1.Items[comboBox1.FindStringExact(value)]; }
+        }
+        public string Megjegyzes
+        {
+            get { return textBox1.Text; }
+            set { textBox1.Text = value; }
+        }
+
         public RendeloForm()
         {
             InitializeComponent();
@@ -20,7 +31,6 @@ namespace autoszerviz
         private void button1_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            this.Tag = (comboBox1.SelectedItem.ToString(), textBox1.Text);
             this.Close();
         }
     }

@@ -52,12 +52,12 @@ namespace autoszerviz
 
         public string időpontSegéd(string kliens, Button gomb)
         {
-            gomb.Enabled = false;
             if (kliens == Form1.név)
             {
                 gomb.BackColor = Color.Orange;
                 return "Enyém";
             }
+            gomb.Enabled = false;
             gomb.BackColor = Color.Red;
             return "Foglalt";
         }
@@ -140,24 +140,36 @@ namespace autoszerviz
             var button = sender as Button;
             if (button != null)
             {
+                var szerelo = szerelőVálasztó.SelectedItem as Felhasználó;
+                var idopont = napVálasztó.SelectionStart.AddHours(int.Parse((string)button.Tag));
                 var rendeles = new RendeloForm();
+                Időpont letezoFoglalas = null;
+                if (button.Text == "Enyém")
+                {
+                    letezoFoglalas = idopontMuveletek.GetIdopont(idopont, szerelo.név);
+                    rendeles.Tipus = letezoFoglalas.muvelet;
+                    rendeles.Megjegyzes = letezoFoglalas.megjegyzes;
+                }
                 var result = rendeles.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
-                    var (muvelet, megjegyzes) = ((string, string))rendeles.Tag;
-                    var szerelo = szerelőVálasztó.SelectedItem as Felhasználó;
+                    var muvelet = rendeles.Tipus;
+                    var megjegyzes = rendeles.Megjegyzes;
                     var kliens = Form1.név;
-                    var idopont = napVálasztó.SelectionStart.AddHours(int.Parse((string)button.Tag));
-                    var foglalas = new Időpont
+                    var foglalas = letezoFoglalas ?? new Időpont
                     {
                         szerelőnév = szerelo.név,
                         ügyfél = kliens,
-                        idő = idopont,
-                        muvelet = muvelet,
-                        megjegyzes = megjegyzes
+                        idő = idopont
                     };
-                    idopontMuveletek.AddIdopont(foglalas);
+                    foglalas.muvelet = muvelet;
+                    foglalas.megjegyzes = megjegyzes;
+
+                    if (letezoFoglalas == null)
+                    {
+                        idopontMuveletek.AddIdopont(foglalas);
+                    }
 
                     idopontMuveletek.Mentes();
                 }

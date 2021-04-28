@@ -30,8 +30,16 @@ namespace autoszerviz.Fiók
 
         public void Mentes()
         {
-            string json = JsonConvert.SerializeObject(idopontok);
+            string json = JsonConvert.SerializeObject(idopontok, Formatting.Indented);
             File.WriteAllText(IdopontokFile, json);
+        }
+
+        public Időpont GetIdopont(DateTime idopont, string szerelo)
+        {
+            return idopontok
+                .Where(ip => ip.szerelőnév == szerelo)
+                .Where(ip => ip.idő == idopont)
+                .First();
         }
     }
 }

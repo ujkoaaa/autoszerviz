@@ -1,86 +1,93 @@
 [
-    {
-        "szerelőnév": "Pista",
-        "ügyfél": "asd2",
-        "idő": "2021-03-25T09:14:45.5986972+01:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "Pista",
-        "ügyfél": "asd",
-        "idő": "2021-03-25T14:14:45.5986972+01:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "szerelő",
-        "ügyfél": "asd",
-        "idő": "2021-03-25T10:18:43.1033573+01:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "Pista",
-        "ügyfél": "asd2",
-        "idő": "2021-03-25T15:18:43.1033573+01:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "szerelő",
-        "ügyfél": "asd",
-        "idő": "2021-03-25T13:00:00+01:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "Pista",
-        "ügyfél": "asd",
-        "idő": "2021-03-25T12:00:00+01:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "Pista",
-        "ügyfél": "asd",
-        "idő": "2021-03-26T11:00:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "Pista",
-        "ügyfél": "asd",
-        "idő": "2021-03-26T16:00:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "szerelő",
-        "ügyfél": "asd",
-        "idő": "2021-04-08T09:00:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "szerelő",
-        "ügyfél": "asd",
-        "idő": "2021-04-08T12:00:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "szerelő",
-        "ügyfél": "asd",
-        "idő": "2021-04-08T11:00:00",
-        "muvelet": null,
-        "megjegyzes": null
-    },
-    {
-        "szerelőnév": "szerelő",
-        "ügyfél": "asd",
-        "idő": "2021-04-08T10:00:00",
-        "muvelet": "Meghibásodás",
-        "megjegyzes": "Valami elromlott."
-    }
+  {
+    "szerelőnév": "Pista",
+    "ügyfél": "asd2",
+    "idő": "2021-03-25T09:14:45.5986972+01:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "Pista",
+    "ügyfél": "asd",
+    "idő": "2021-03-25T14:14:45.5986972+01:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "szerelő",
+    "ügyfél": "asd",
+    "idő": "2021-03-25T10:18:43.1033573+01:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "Pista",
+    "ügyfél": "asd2",
+    "idő": "2021-03-25T15:18:43.1033573+01:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "szerelő",
+    "ügyfél": "asd",
+    "idő": "2021-03-25T13:00:00+01:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "Pista",
+    "ügyfél": "asd",
+    "idő": "2021-03-25T12:00:00+01:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "Pista",
+    "ügyfél": "asd",
+    "idő": "2021-03-26T11:00:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "Pista",
+    "ügyfél": "asd",
+    "idő": "2021-03-26T16:00:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "szerelő",
+    "ügyfél": "asd",
+    "idő": "2021-04-08T09:00:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "szerelő",
+    "ügyfél": "asd",
+    "idő": "2021-04-08T12:00:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "szerelő",
+    "ügyfél": "asd",
+    "idő": "2021-04-08T11:00:00",
+    "muvelet": null,
+    "megjegyzes": null
+  },
+  {
+    "szerelőnév": "szerelő",
+    "ügyfél": "asd",
+    "idő": "2021-04-08T10:00:00",
+    "muvelet": "Meghibásodás",
+    "megjegyzes": "Valami elromlott."
+  },
+  {
+    "szerelőnév": "szerelő",
+    "ügyfél": "asd",
+    "idő": "2021-04-29T12:00:00",
+    "muvelet": "Kötelező szerviz",
+    "megjegyzes": "asdasd\r\nupdat\r\nupdate 2"
+  }
 ]
