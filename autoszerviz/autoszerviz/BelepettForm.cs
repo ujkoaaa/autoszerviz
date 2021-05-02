@@ -24,7 +24,7 @@ namespace autoszerviz
             idopontMuveletek = new IdopontMuveletek();
             label1.Text = "Üdv "+Form1.név;
 
-            foreach (var szerelő in new fiókMűveletek().összesSzerelő())
+            foreach (var szerelő in fiókMűveletek.összesSzerelő())
             {
                 szerelőVálasztó.Items.Add(szerelő);
             }
@@ -110,6 +110,11 @@ namespace autoszerviz
             idopontLista.Add(button6);
             idopontLista.Add(button7);
             idopontLista.Add(button8);
+            var szervizkonyvgombok = new Button[] {button9, button10, button11, button12, button13, button14, button15, button16 }; 
+            foreach(var it in szervizkonyvgombok)
+            {
+                it.Enabled = false;
+            }
             foreach (var it in idopontLista)
             {
                 if (nap.Date < DateTime.Now.Date || (nap.Date == DateTime.Now.Date && idopontLista.IndexOf(it) + 8 < DateTime.Now.Hour))
@@ -131,6 +136,18 @@ namespace autoszerviz
                 if (f.idő.Date == nap.Date)
                 {
                     időpontListázás(f.ügyfél, f.idő.Hour.ToString());
+                }
+            }
+            for(int i=0; i< idopontLista.Count;++i)
+            {
+                bool szerelo = fiókMűveletek.összesSzerelő().Where(felhasznalo => felhasznalo.név == Form1.név) != null;
+                if (idopontLista[i].Text !="Szabad" && idopontLista[i].Text != "Elmúlt" && szerelo)
+                {
+                    var idopont = napVálasztó.SelectionStart.AddHours(9+i);
+                    if (!IdopontMuveletek.vanSzervizkonyv(idopont))
+                    {
+                        szervizkonyvgombok[i].Enabled = true;
+                    }
                 }
             }
         }

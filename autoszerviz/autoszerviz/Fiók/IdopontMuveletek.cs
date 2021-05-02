@@ -13,7 +13,7 @@ namespace autoszerviz.Fiók
     {
         private const string IdopontokFile = "../../../időpontok.json";
 
-        private List<Időpont> idopontok;
+        private static List<Időpont> idopontok;
 
         public IdopontMuveletek()
         {
@@ -33,7 +33,10 @@ namespace autoszerviz.Fiók
             string json = JsonConvert.SerializeObject(idopontok, Formatting.Indented);
             File.WriteAllText(IdopontokFile, json);
         }
-
+        public static bool vanSzervizkonyv(DateTime idopont)
+        {
+           return idopontok.Where(ip => ip.idő == idopont).First().szervizkonyv != null;
+        }
         public Időpont GetIdopont(DateTime idopont, string szerelo)
         {
             return idopontok

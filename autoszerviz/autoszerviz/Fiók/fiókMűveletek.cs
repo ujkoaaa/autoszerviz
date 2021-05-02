@@ -65,7 +65,7 @@ namespace autoszerviz.Fiók
             System.IO.File.WriteAllText(AdatokFile, json);
         }
 
-        public List<Felhasználó> összesSzerelő()
+        public static List<Felhasználó> összesSzerelő()
         {
             List<Felhasználó> felhasználók = new List<Felhasználó>();
             using (StreamReader r = new StreamReader(AdatokFile))

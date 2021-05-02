@@ -14,5 +14,6 @@ namespace autoszerviz.Fiók
 
         public string muvelet;
         public string megjegyzes;
+        public string szervizkonyv;
     }
 }
