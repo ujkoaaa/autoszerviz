@@ -22,7 +22,7 @@ namespace autoszerviz
             InitializeComponent();
 
             idopontMuveletek = new IdopontMuveletek();
-            label1.Text = "Üdv "+Form1.név;
+            label1.Text = "Üdv " + Form1.név;
 
             foreach (var szerelő in fiókMűveletek.összesSzerelő())
             {
@@ -63,11 +63,11 @@ namespace autoszerviz
         }
         public void időpontListázás(string kliens, string óra)
         {
-            if(óra=="9")
+            if (óra == "9")
             {
                 button1.Text = időpontSegéd(kliens, button1);
             }
-            else if(óra=="10")
+            else if (óra == "10")
             {
                 button2.Text = időpontSegéd(kliens, button2);
             }
@@ -110,8 +110,8 @@ namespace autoszerviz
             idopontLista.Add(button6);
             idopontLista.Add(button7);
             idopontLista.Add(button8);
-            var szervizkonyvgombok = new Button[] {button9, button10, button11, button12, button13, button14, button15, button16 }; 
-            foreach(var it in szervizkonyvgombok)
+            var szervizkonyvgombok = new Button[] { button9, button10, button11, button12, button13, button14, button15, button16 };
+            foreach (var it in szervizkonyvgombok)
             {
                 it.Enabled = false;
             }
@@ -138,17 +138,37 @@ namespace autoszerviz
                     időpontListázás(f.ügyfél, f.idő.Hour.ToString());
                 }
             }
-            for(int i=0; i< idopontLista.Count;++i)
+            for (int i = 0; i < idopontLista.Count; ++i)
             {
                 bool szerelo = fiókMűveletek.összesSzerelő().Where(felhasznalo => felhasznalo.név == Form1.név) != null;
-                if (idopontLista[i].Text !="Szabad" && idopontLista[i].Text != "Elmúlt" && szerelo)
+                if (idopontLista[i].Text != "Szabad" && idopontLista[i].Text != "Elmúlt" && szerelo)
                 {
-                    var idopont = napVálasztó.SelectionStart.AddHours(9+i);
+                    var idopont = napVálasztó.SelectionStart.AddHours(9 + i);
                     if (!IdopontMuveletek.vanSzervizkonyv(idopont))
                     {
                         szervizkonyvgombok[i].Enabled = true;
                     }
                 }
+            }
+        }
+
+        private void bookbutton_Click(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                var szerelo = szerelőVálasztó.SelectedItem as Felhasználó;
+                var idopont = napVálasztó.SelectionStart.AddHours(int.Parse((string)button.Tag));
+
+                var letezoFoglalas = idopontMuveletek.GetIdopont(idopont, szerelo.név);
+
+                textBox1.Text = letezoFoglalas.szervizkonyv ?? $@"Szervízkönyv {letezoFoglalas.ügyfél} részére
+=============================
+";
+
+                panel1.Visible = true;
+
+                panel1.Tag = letezoFoglalas;
             }
         }
 
@@ -191,6 +211,40 @@ namespace autoszerviz
                     idopontMuveletek.Mentes();
                 }
                 napFrissítés();
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            if (sender is Button but)
+            {
+                if (but.Text == "Véglegesít")
+                {
+                    var sum = 0;
+                    foreach (var line in textBox1.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None))
+                    {
+                        var lastWord = line.Split(' ').Last();
+
+                        if(int.TryParse(lastWord, out int value))
+                        {
+                            sum += value;
+                        }
+                    }
+
+                    textBox1.Text += $@"
+==================
+ÖSSZEG: {sum}";
+                    but.Text = "Biztos?";
+                }
+                else
+                {
+                    var idopont = panel1.Tag as Időpont;
+                    idopont.szervizkonyv = textBox1.Text;
+                    idopontMuveletek.Mentes();
+
+                    panel1.Visible = false;
+                    but.Text = "Véglegesít";
+                }
             }
         }
     }
