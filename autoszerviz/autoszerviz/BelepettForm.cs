@@ -242,6 +242,7 @@ namespace autoszerviz
                     idopont.szervizkonyv = textBox1.Text;
                     idopontMuveletek.Mentes();
 
+                    napFrissítés();
                     panel1.Visible = false;
                     but.Text = "Véglegesít";
                 }
