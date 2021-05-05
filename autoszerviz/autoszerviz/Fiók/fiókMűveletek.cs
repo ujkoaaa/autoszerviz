@@ -61,7 +61,7 @@ namespace autoszerviz.Fiók
                 lista = new List<Felhasználó>();
             }
             lista.Add(new Felhasználó(név, jelszó));
-            string json = JsonConvert.SerializeObject(lista);
+            string json = JsonConvert.SerializeObject(lista, Formatting.Indented);
             System.IO.File.WriteAllText(AdatokFile, json);
         }
 

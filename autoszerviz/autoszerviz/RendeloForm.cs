@@ -26,6 +26,7 @@ namespace autoszerviz
         public RendeloForm()
         {
             InitializeComponent();
+            comboBox1.SelectedItem = comboBox1.Items[0];
         }
 
         private void button1_Click(object sender, EventArgs e)
