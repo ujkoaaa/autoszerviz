@@ -140,7 +140,7 @@ namespace autoszerviz
             }
             for (int i = 0; i < idopontLista.Count; ++i)
             {
-                bool szerelo = fiókMűveletek.összesSzerelő().Where(felhasznalo => felhasznalo.név == Form1.név) != null;
+                bool szerelo = fiókMűveletek.összesSzerelő().Any(felhasznalo => felhasznalo.név == Form1.név);
                 if (idopontLista[i].Text != "Szabad" && idopontLista[i].Text != "Elmúlt" && szerelo)
                 {
                     var idopont = napVálasztó.SelectionStart.AddHours(9 + i);
