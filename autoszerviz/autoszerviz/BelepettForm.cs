@@ -37,7 +37,14 @@ namespace autoszerviz
 
         private void kilépB_Click(object sender, EventArgs e)
         {
-            Close();
+            if (panel1.Visible)
+            {
+                panel1.Visible = false;
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private void napVálasztó_DateChanged(object sender, DateRangeEventArgs e)
